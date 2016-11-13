@@ -38,7 +38,7 @@
     NSNotification *notification = [[NSNotification alloc] initWithName:@"stepChanged" object:nil userInfo:stepValDict];
     
     [nCentre postNotification:notification];
-    NSLog(@"Notification posted with step value: %@", stepVal);
+//    NSLog(@"Notification posted with step value: %@", stepVal);
 }
 
 

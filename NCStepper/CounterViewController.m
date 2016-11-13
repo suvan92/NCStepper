@@ -24,19 +24,17 @@
     
     NSNotificationCenter *nCentre = [NSNotificationCenter defaultCenter];
     
-    [nCentre addObserver:self selector:@selector(updateLabel:) name:@"updateCounter" object:nil];
-    
+    [nCentre addObserver:self selector:@selector(updateLabel:) name:@"stepChanged" object:nil];
 }
 
 
 -(void)updateLabel:(NSNotification *)notification {
     
+    // Retrieve stepper value from the userInfo dictionary of the notification
+    NSNumber *stepVal = [notification.userInfo objectForKey:@"stepperValue"];
+    
+    // Convert stepVal (NSNumber) into a string and update the label
+    self.counterLabel.text = [stepVal stringValue];
 }
-
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-//    if ([keyPath isEqualToString:@""]) {
-//        
-//    }
-//}
 
 @end
